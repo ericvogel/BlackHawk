@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=OverWorld()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ OverWorld.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ Setup()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=newTextBox
+comment3.target=void\ addToMessageQue(TextBox)
+comment4.params=
+comment4.target=TextBox\ getNextMessage()
+numComments=5

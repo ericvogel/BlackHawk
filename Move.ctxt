@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=
+comment1.target=int\ getPower()
+comment2.params=newPower
+comment2.target=void\ setPower(int)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=newName
+comment4.target=void\ setName(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getType()
+comment6.params=newType
+comment6.target=void\ settype(java.lang.String)
+numComments=7
