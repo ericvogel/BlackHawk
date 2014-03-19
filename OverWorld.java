@@ -36,7 +36,7 @@ public class OverWorld extends World
         act();
         
         addToMessageQue(new TextBox("Welcome " + Player.getName() + ",", "To wonderus land full of strange creatures unlike any seen before...","<INSERT_GAME_NAME_HERE>","","", true));
-        addToMessageQue(new TextBox("Can you find the elusive Stevie?", "Only time will tell.", "Have fun Exploring the map!", "", "",true));
+        addToMessageQue(new TextBox("Can you find the elusive Stevie?", "Only time will tell.", "Have fun exploring the map!", "", "",true));
         Greenfoot.start();
     }
     public void act()
