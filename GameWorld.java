@@ -58,6 +58,37 @@ public class GameWorld extends Actor
                 //System.out.println("found " + worldToGen.getColorAt(i, j));
             }
         }
+        for (int i = 0; i < worldWidth/50; i++)
+        {
+            boolean waterFirst = false;
+            boolean sandFirst = false;
+            for (int j = 0; j < worldHeight/50; j++)
+            {
+                if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirst == true)
+                {
+                    sandFirst = false;
+                    waterFirst = true;
+                    System.out.print(" | ");                    
+                }
+                else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirst == false)
+                {
+                    waterFirst = true;
+                    System.out.print(" B ");
+                }
+                if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirst == true)
+                {
+                    waterFirst = false;
+                    sandFirst = true;
+                    System.out.print(" | ");
+                }
+                else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirst == false)
+                {
+                    sandFirst = true;
+                    System.out.print(" R ");
+                }
+            }
+            System.out.println("");
+        }
         setImage(worldMap);
     }
     
