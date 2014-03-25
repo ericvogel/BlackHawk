@@ -34,6 +34,10 @@ public class GameWorld extends Actor
         sandwater_hor.scale( 10 , 50);
         GreenfootImage watersand_hor = new GreenfootImage("watersand_hor.png");
         watersand_hor.scale( 10 , 50);
+        GreenfootImage sandwater_vert = new GreenfootImage("sandwater_vert.png");
+        sandwater_vert.scale( 50 , 10);
+        GreenfootImage watersand_vert = new GreenfootImage("watersand_vert.png");
+        watersand_vert.scale( 50 , 10);
         
         for (int i = 0; i < worldWidth/50; i++)
         {
@@ -77,7 +81,8 @@ public class GameWorld extends Actor
                     sandFirstVert = false;
                     waterFirstVert = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50,j*50-5,50,10);
+                    //worldMap.fillRect(i*50,j*50-5,50,10);
+                    worldMap.drawImage(sandwater_vert, i*50, j*50-5);
                     //shore = sand on top water on bottom
                     //System.out.print(" | ");                    
                 }
@@ -91,7 +96,8 @@ public class GameWorld extends Actor
                     waterFirstVert = false;
                     sandFirstVert = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50,j*50-5,50,10);
+                    //worldMap.fillRect(i*50,j*50-5,50,10);
+                    worldMap.drawImage(watersand_vert, i*50, j*50-5);
                     //shore = water on top sand on bottom
                     //System.out.print(" | ");
                 }
