@@ -10,19 +10,19 @@ public class Player extends Actor
 {
     private int imageNumber = 2;
     
-        GreenfootImage north1 = new GreenfootImage("Player\\north1.png");
-        GreenfootImage north2 = new GreenfootImage("Player\\north2.png");
-        GreenfootImage north3 = new GreenfootImage("Player\\north3.png");
-        GreenfootImage east1 = new GreenfootImage("Player\\east1.png");
-        GreenfootImage east2 = new GreenfootImage("Player\\east2.png");
-        GreenfootImage east3 = new GreenfootImage("Player\\east3.png");
-        GreenfootImage south1 = new GreenfootImage("Player\\south1.png");
-        GreenfootImage south2 = new GreenfootImage("Player\\south2.png");
-        GreenfootImage south3 = new GreenfootImage("Player\\south3.png");
-        GreenfootImage west1 = new GreenfootImage("Player\\west1.png");
-        GreenfootImage west2 = new GreenfootImage("Player\\west2.png");
-        GreenfootImage west3 = new GreenfootImage("Player\\west3.png");
-        GreenfootImage colMap = new GreenfootImage("colMap.png");
+    GreenfootImage north1 = new GreenfootImage("Player\\north1.png");
+    GreenfootImage north2 = new GreenfootImage("Player\\north2.png");
+    GreenfootImage north3 = new GreenfootImage("Player\\north3.png");
+    GreenfootImage east1 = new GreenfootImage("Player\\east1.png");
+    GreenfootImage east2 = new GreenfootImage("Player\\east2.png");
+    GreenfootImage east3 = new GreenfootImage("Player\\east3.png");
+    GreenfootImage south1 = new GreenfootImage("Player\\south1.png");
+    GreenfootImage south2 = new GreenfootImage("Player\\south2.png");
+    GreenfootImage south3 = new GreenfootImage("Player\\south3.png");
+    GreenfootImage west1 = new GreenfootImage("Player\\west1.png");
+    GreenfootImage west2 = new GreenfootImage("Player\\west2.png");
+    GreenfootImage west3 = new GreenfootImage("Player\\west3.png");
+    GreenfootImage colMap = new GreenfootImage("colMap.png");
     public Player(String name)
     {
         this.playerName = name;
