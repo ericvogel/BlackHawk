@@ -74,6 +74,7 @@ public class GameWorld extends Actor
                     waterFirstVert = true;
                     worldMap.setColor(Color.CYAN);
                     worldMap.fillRect(i*50,j*50-5,50,10);
+                    //shore = sand on top water on bottom
                     //System.out.print(" | ");                    
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == false)
@@ -87,6 +88,7 @@ public class GameWorld extends Actor
                     sandFirstVert = true;
                     worldMap.setColor(Color.CYAN);
                     worldMap.fillRect(i*50,j*50-5,50,10);
+                    //shore = water on top sand on bottom
                     //System.out.print(" | ");
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == false)
@@ -113,6 +115,7 @@ public class GameWorld extends Actor
                     waterFirstHor = true;
                     worldMap.setColor(Color.CYAN);
                     worldMap.fillRect(i*50-5,j*50,10,50);
+                    //shore = sand on left water on right
                     //System.out.print(" | ");                    
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == false)
@@ -126,6 +129,7 @@ public class GameWorld extends Actor
                     sandFirstHor = true;
                     worldMap.setColor(Color.CYAN);
                     worldMap.fillRect(i*50-5,j*50,10,50);
+                    //shore = water on left sand on right
                     //System.out.print(" | ");
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == false)
