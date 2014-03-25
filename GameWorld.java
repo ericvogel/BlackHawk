@@ -30,6 +30,14 @@ public class GameWorld extends Actor
         sandTile.scale(50, 50);
         GreenfootImage pathTile = new GreenfootImage("path1.png");
         pathTile.scale(50, 50);
+        GreenfootImage sandwater_hor = new GreenfootImage("sandwater_hor.png");
+        sandwater_hor.scale( 10 , 50);
+        GreenfootImage watersand_hor = new GreenfootImage("watersand_hor.png");
+        watersand_hor.scale( 10 , 50);
+        GreenfootImage sandwater_vert = new GreenfootImage("sandwater_vert.png");
+        sandwater_vert.scale( 50 , 10);
+        GreenfootImage watersand_vert = new GreenfootImage("watersand_vert.png");
+        watersand_vert.scale( 50 , 10);
         
         for (int i = 0; i < worldWidth/50; i++)
         {
@@ -73,7 +81,9 @@ public class GameWorld extends Actor
                     sandFirstVert = false;
                     waterFirstVert = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50,j*50-5,50,10);
+                    //worldMap.fillRect(i*50,j*50-5,50,10);
+                    worldMap.drawImage(sandwater_vert, i*50, j*50-5);
+                    //shore = sand on top water on bottom
                     //System.out.print(" | ");                    
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == false)
@@ -86,7 +96,9 @@ public class GameWorld extends Actor
                     waterFirstVert = false;
                     sandFirstVert = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50,j*50-5,50,10);
+                    //worldMap.fillRect(i*50,j*50-5,50,10);
+                    worldMap.drawImage(watersand_vert, i*50, j*50-5);
+                    //shore = water on top sand on bottom
                     //System.out.print(" | ");
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == false)
@@ -112,7 +124,9 @@ public class GameWorld extends Actor
                     sandFirstHor = false;
                     waterFirstHor = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50-5,j*50,10,50);
+                    //worldMap.fillRect(i*50-5,j*50,10,50);
+                    worldMap.drawImage(sandwater_hor, i*50-5, j*50);
+                    //shore = sand on left water on right
                     //System.out.print(" | ");                    
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == false)
@@ -125,7 +139,9 @@ public class GameWorld extends Actor
                     waterFirstHor = false;
                     sandFirstHor = true;
                     worldMap.setColor(Color.CYAN);
-                    worldMap.fillRect(i*50-5,j*50,10,50);
+                    //worldMap.fillRect(i*50-5,j*50,10,50);
+                    worldMap.drawImage(watersand_hor, i*50-5, j*50);
+                    //shore = water on left sand on right
                     //System.out.print(" | ");
                 }
                 else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == false)
