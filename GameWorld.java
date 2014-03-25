@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.Color;
+import java.awt.Color; //(java Color)
 /**
  * Write a description of class GameWorld here.
  * 
@@ -21,6 +21,7 @@ public class GameWorld extends Actor
         worldWidth = worldToGen.getWidth() * 50;
         worldHeight = worldToGen.getWidth()* 50;
         
+        //Tile Images//
         GreenfootImage worldMap = new GreenfootImage(worldWidth, worldWidth);
         GreenfootImage waterTile = new GreenfootImage("Water1.png");
         waterTile.scale(50, 50);
@@ -30,6 +31,8 @@ public class GameWorld extends Actor
         sandTile.scale(50, 50);
         GreenfootImage pathTile = new GreenfootImage("path1.png");
         pathTile.scale(50, 50);
+        
+        //Shore Images//
         GreenfootImage sandwater_hor = new GreenfootImage("sandwater_hor.png");
         sandwater_hor.scale( 10 , 50);
         GreenfootImage watersand_hor = new GreenfootImage("watersand_hor.png");
@@ -76,39 +79,48 @@ public class GameWorld extends Actor
             boolean sandFirstVert = false;
             for (int j = 0; j < worldHeight/50; j++)
             {
-                if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == true)
+                if (worldToGen.getColorAt(i, j).equals(Color.BLUE) || worldToGen.getColorAt(i, j).equals(Color.RED))
+                {
+                    if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == true)
+                    {
+                        sandFirstVert = false;
+                        waterFirstVert = true;
+                        worldMap.setColor(Color.CYAN);
+                        //worldMap.fillRect(i*50,j*50-5,50,10);
+                        worldMap.drawImage(sandwater_vert, i*50, j*50-5);
+                        //shore = sand on top water on bottom
+                        //System.out.print(" | ");                    
+                    }
+                    else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == false)
+                    {
+                        waterFirstVert = true;
+                        //System.out.print(" B ");
+                    }
+                    if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == true)
+                    {
+                        waterFirstVert = false;
+                        sandFirstVert = true;
+                        worldMap.setColor(Color.CYAN);
+                        //worldMap.fillRect(i*50,j*50-5,50,10);
+                        worldMap.drawImage(watersand_vert, i*50, j*50-5);
+                        //shore = water on top sand on bottom
+                        //System.out.print(" | ");
+                    }
+                    else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == false)
+                    {
+                        sandFirstVert = true;
+                        //System.out.print(" R ");
+                    }
+                }
+                else
                 {
                     sandFirstVert = false;
-                    waterFirstVert = true;
-                    worldMap.setColor(Color.CYAN);
-                    //worldMap.fillRect(i*50,j*50-5,50,10);
-                    worldMap.drawImage(sandwater_vert, i*50, j*50-5);
-                    //shore = sand on top water on bottom
-                    //System.out.print(" | ");                    
-                }
-                else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstVert == false)
-                {
-                    waterFirstVert = true;
-                    //System.out.print(" B ");
-                }
-                if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == true)
-                {
                     waterFirstVert = false;
-                    sandFirstVert = true;
-                    worldMap.setColor(Color.CYAN);
-                    //worldMap.fillRect(i*50,j*50-5,50,10);
-                    worldMap.drawImage(watersand_vert, i*50, j*50-5);
-                    //shore = water on top sand on bottom
-                    //System.out.print(" | ");
-                }
-                else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstVert == false)
-                {
-                    sandFirstVert = true;
-                    //System.out.print(" R ");
                 }
             }
-            //System.out.println("");
         }
+            //System.out.println("");
+    
         
         //System.out.println("||=====================||");
         //System.out.println("||checking horizontally||");
@@ -119,38 +131,46 @@ public class GameWorld extends Actor
             boolean sandFirstHor = false;
             for (int i = 0; i < worldWidth/50; i++)
             {
-                if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == true)
+                if (worldToGen.getColorAt(i, j).equals(Color.BLUE) || worldToGen.getColorAt(i, j).equals(Color.RED))
+                {
+                    if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == true)
+                    {
+                        sandFirstHor = false;
+                        waterFirstHor = true;
+                        worldMap.setColor(Color.CYAN);
+                        //worldMap.fillRect(i*50-5,j*50,10,50);
+                        worldMap.drawImage(sandwater_hor, i*50-5, j*50);
+                        //shore = sand on left water on right
+                        //System.out.print(" | ");                    
+                    }
+                    else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == false)
+                    {
+                        waterFirstHor = true;
+                        //System.out.print(" B ");
+                    }
+                    if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == true)
+                    {
+                        waterFirstHor = false;
+                        sandFirstHor = true;
+                        worldMap.setColor(Color.CYAN);
+                        //worldMap.fillRect(i*50-5,j*50,10,50);
+                        worldMap.drawImage(watersand_hor, i*50-5, j*50);
+                        //shore = water on left sand on right
+                        //System.out.print(" | ");
+                    }
+                    else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == false)
+                    {
+                        sandFirstHor = true;
+                        //System.out.print(" R ");
+                    }
+                }
+                else
                 {
                     sandFirstHor = false;
-                    waterFirstHor = true;
-                    worldMap.setColor(Color.CYAN);
-                    //worldMap.fillRect(i*50-5,j*50,10,50);
-                    worldMap.drawImage(sandwater_hor, i*50-5, j*50);
-                    //shore = sand on left water on right
-                    //System.out.print(" | ");                    
-                }
-                else if (worldToGen.getColorAt(i, j).equals(Color.BLUE) && sandFirstHor == false)
-                {
-                    waterFirstHor = true;
-                    //System.out.print(" B ");
-                }
-                if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == true)
-                {
                     waterFirstHor = false;
-                    sandFirstHor = true;
-                    worldMap.setColor(Color.CYAN);
-                    //worldMap.fillRect(i*50-5,j*50,10,50);
-                    worldMap.drawImage(watersand_hor, i*50-5, j*50);
-                    //shore = water on left sand on right
-                    //System.out.print(" | ");
                 }
-                else if (worldToGen.getColorAt(i, j).equals(Color.RED) && waterFirstHor == false)
-                {
-                    sandFirstHor = true;
-                    //System.out.print(" R ");
-                }
+                //System.out.println("");
             }
-            //System.out.println("");
         }
         setImage(worldMap);
     }
